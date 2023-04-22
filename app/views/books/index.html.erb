@@ -2,18 +2,16 @@
   <div class="container px-5 px-sm-0">
     <div class="row">
       <div class="col-md-3">
-        <!--部分テンプレート「User info」-->
-        <%= render 'users/info' %>
 
-        <!--部分テンプレート「プロフィール編集ボタン」-->
-        <%= render 'users/editprofile' %>
 
-        <!--部分テンプレート「新規投稿フォーム」-->
-        <%= render 'newbook' %>
+        <%= render 'list', user: @user, book: @book %>
+
+
       </div>
       <div class="col-md-8 offset-md-1">
         <h2>Books</h2>
         <table class="table table-hover table-inverse">
+
           <thead>
             <tr>
               <th>
@@ -27,8 +25,8 @@
           <% @books.each do |book| %>
           <tbody>
             <tr>
-              <td></td>
-              <td><%= book.title %></td>
+              <td><%= image_tag book.user.get_profile_image(100,100) %></td>
+              <td><%= link_to book.title, book_path(book.id) %></td>
               <td><%= book.body %></td>
             </tr>
           </tbody>
@@ -38,3 +36,4 @@
       </div>
   </div>
 </main>
+
