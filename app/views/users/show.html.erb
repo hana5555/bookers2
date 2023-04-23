@@ -3,6 +3,10 @@
     <div class="row">
       <div class="col-md-3">
 
+        <div>
+          <%= flash[:notice] %>
+        </div>
+
 
         <%= render 'books/list', user: @user, book: @book %>
 

@@ -13,20 +13,18 @@
         <table class="table table-hover table-inverse">
           <thead>
             <tr>
-              <th>
                 <th>image</th>
                 <th>name</th>
                 <th colspan="3"></th>
-              </th>
             </tr>
           </thead>
 
-          <% @book.each do |book| %>
+          <% @users.each do |user| %>
           <tbody>
             <tr>
-              <td><%= image_tag @users.get_profile_image(100,100) %></td>
-              <td><%= link_to book.title, book_path(books.id) %></td>
-              <td></td>
+              <td><%= image_tag user.get_profile_image(100,100) %></td>
+              <td><%= user.name %></td>
+              <td><%= link_to "Show", user_path(user.id) %></td>
             </tr>
           </tbody>
           <% end %>
